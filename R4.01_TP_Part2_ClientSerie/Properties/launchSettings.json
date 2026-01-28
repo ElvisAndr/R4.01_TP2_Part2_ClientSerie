@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "R4.01_TP_Part2_ClientSerie (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "R4.01_TP_Part2_ClientSerie (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
