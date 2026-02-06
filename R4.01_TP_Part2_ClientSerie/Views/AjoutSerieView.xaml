@@ -71,7 +71,7 @@
                        RelativePanel.AlignHorizontalCenterWithPanel="True"/>
 
             <NumberBox x:Name="NumAnnee"
-                       Value="{Binding SerieToAdd.AnneeCreation, Mode=TwoWay}"
+                       Value="{Binding SerieToAdd.Anneecreation, Mode=TwoWay}"
                        Width="150"
                        RelativePanel.Below="lblAnnee"
                        RelativePanel.AlignHorizontalCenterWithPanel="True"
