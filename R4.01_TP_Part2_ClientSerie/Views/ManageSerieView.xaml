@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="R4._01_TP_Part2_ClientSerie.Views.ManageSerieView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:R4._01_TP_Part2_ClientSerie.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <RelativePanel HorizontalAlignment="Center" Width="500" Margin="0,20,0,40">
+
+            <TextBlock x:Name="lblSearch" 
+                   Text="Numéro de série à afficher" 
+                   FontWeight="SemiBold"
+                   RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+
+            <TextBox x:Name="TxtSearchId" 
+                 Text="{Binding SearchId, Mode=TwoWay}" 
+                 Width="150"
+                 PlaceholderText="ID..."
+                 RelativePanel.Below="lblSearch"
+                 RelativePanel.AlignHorizontalCenterWithPanel="True"
+                 Margin="0,5,0,15"/>
+
+            <Button x:Name="BtnSearch" 
+                Content="Rechercher" 
+                Command="{Binding BtnSearchSerie}" 
+                Width="150"
+                RelativePanel.Below="TxtSearchId"
+                RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+
+            <Rectangle x:Name="Sep" 
+                   Height="2" 
+                   Width="450" 
+                   Fill="LightGray" 
+                   RelativePanel.Below="BtnSearch"
+                   RelativePanel.AlignHorizontalCenterWithPanel="True"
+                   Margin="0,25,0,25"/>
+
+            <TextBlock x:Name="lblTitre" 
+                   Text="Titre" 
+                   RelativePanel.Below="Sep"
+                   RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+
+            <TextBox x:Name="TxtTitre" 
+                 Text="{Binding SerieToManage.Titre, Mode=TwoWay}" 
+                 Width="400"
+                 RelativePanel.Below="lblTitre"
+                 RelativePanel.AlignHorizontalCenterWithPanel="True"
+                 Margin="0,5,0,15"/>
+
+            <TextBlock x:Name="lblResume" 
+                   Text="Résumé" 
+                   RelativePanel.Below="TxtTitre"
+                   RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+
+            <TextBox x:Name="TxtResume" 
+                 Text="{Binding SerieToManage.Resume, Mode=TwoWay}" 
+                 Width="400" 
+                 Height="100" 
+                 TextWrapping="Wrap" 
+                 AcceptsReturn="True"
+                 RelativePanel.Below="lblResume"
+                 RelativePanel.AlignHorizontalCenterWithPanel="True"
+                 Margin="0,5,0,15"/>
+
+            <StackPanel x:Name="GrpSaisons" 
+                    Orientation="Horizontal" 
+                    Spacing="30"
+                    RelativePanel.Below="TxtResume"
+                    RelativePanel.AlignHorizontalCenterWithPanel="True"
+                    Margin="0,0,0,15">
+
+                <StackPanel>
+                    <TextBlock Text="Nb Saisons" HorizontalAlignment="Center"/>
+                    <NumberBox Value="{Binding SerieToManage.Nbsaisons, Mode=TwoWay}" 
+                           Width="120" 
+                           SpinButtonPlacementMode="Inline"
+                           Margin="0,5,0,0"/>
+                </StackPanel>
+
+                <StackPanel>
+                    <TextBlock Text="Nb Épisodes" HorizontalAlignment="Center"/>
+                    <NumberBox Value="{Binding SerieToManage.Nbepisodes, Mode=TwoWay}" 
+                           Width="120" 
+                           SpinButtonPlacementMode="Inline"
+                           Margin="0,5,0,0"/>
+                </StackPanel>
+            </StackPanel>
+
+            <TextBlock x:Name="lblAnnee" 
+                   Text="Année création" 
+                   RelativePanel.Below="GrpSaisons"
+                   RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+
+            <NumberBox x:Name="NumAnnee" 
+                   Value="{Binding SerieToManage.Anneecreation, Mode=TwoWay}" 
+                   Width="150"
+                   SpinButtonPlacementMode="Inline"
+                   RelativePanel.Below="lblAnnee"
+                   RelativePanel.AlignHorizontalCenterWithPanel="True"
+                   Margin="0,5,0,15"/>
+
+            <TextBlock x:Name="lblChaine" 
+                   Text="Chaîne" 
+                   RelativePanel.Below="NumAnnee"
+                   RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+
+            <TextBox x:Name="TxtChaine" 
+                 Text="{Binding SerieToManage.Network, Mode=TwoWay}" 
+                 Width="250"
+                 RelativePanel.Below="lblChaine"
+                 RelativePanel.AlignHorizontalCenterWithPanel="True"
+                 Margin="0,5,0,30"/>
+
+            <StackPanel x:Name="GrpActions" 
+                    Orientation="Horizontal" 
+                    Spacing="20"
+                    RelativePanel.Below="TxtChaine"
+                    RelativePanel.AlignHorizontalCenterWithPanel="True">
+
+                <Button Content="Modifier" 
+                    Command="{Binding BtnUpdateSerie}" 
+                    Width="130"
+                    Style="{StaticResource AccentButtonStyle}"/>
+
+                <Button Content="Supprimer" 
+                    Command="{Binding BtnDeleteSerie}" 
+                    Width="130" 
+                    Foreground="White" 
+                    Background="DarkRed"/>
+            </StackPanel>
+
+        </RelativePanel>
+    </ScrollViewer>
+</Page>

@@ -14,6 +14,24 @@
     </Window.SystemBackdrop>
 
     <Grid>
+        <NavigationView x:Name="NavView" 
+                        PaneDisplayMode="Left"
+                        IsSettingsVisible="False">
 
+            <NavigationView.MenuItems>
+                <NavigationViewItem Content="Ajouter une série" 
+                                    Icon="Add" 
+                                    Tag="AddSeriePage" 
+                                    Tapped="NavAdd_Tapped"/>
+
+                <NavigationViewItem Content="Gérer les séries" 
+                                    Icon="List" 
+                                    Tag="ManageSeriePage" 
+                                    Tapped="NavManage_Tapped"/>
+            </NavigationView.MenuItems>
+
+            <Frame x:Name="ContentFrame" Margin="20"/>
+
+        </NavigationView>
     </Grid>
 </Window>

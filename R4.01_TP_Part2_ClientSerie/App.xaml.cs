@@ -49,6 +49,7 @@ namespace R4._01_TP_Part2_ClientSerie
 
             //ViewModels
             services.AddTransient<AjoutSerieVM>();
+            services.AddTransient<ManageSerieVM>();
 
             Services = services.BuildServiceProvider();
         }
@@ -64,13 +65,15 @@ namespace R4._01_TP_Part2_ClientSerie
         /// <param name="args">Details about the launch request and process.</param>
         protected override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
         {
-            m_window = new MainWidow();
-            Frame rootFrame = new Frame();
-            this.m_window.Content = rootFrame;
-            m_window.Activate();
-            rootFrame.Navigate(typeof(AjoutSerieView));
+            //m_window = new MainWidow();
+            _window = new MainWidow();
+            //Frame rootFrame = new Frame();
+            //this._window.Content = rootFrame;
+            //m_window.Activate();
+            //rootFrame.Navigate(typeof(AjoutSerieView));
 
-            MainRoot = m_window.Content as FrameworkElement;
+            _window.Activate();
+            MainRoot = _window.Content as FrameworkElement;
         }
         private Window m_window;
     }

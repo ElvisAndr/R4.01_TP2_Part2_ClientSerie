@@ -16,6 +16,7 @@
   <ItemGroup>
     <None Remove="MainWidow.xaml" />
     <None Remove="Views\AjoutSerieView.xaml" />
+    <None Remove="Views\ManageSerieView.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -45,6 +46,11 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.23" />
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.7463" />
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.6.240829007" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\ManageSerieView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="MainWidow.xaml">
