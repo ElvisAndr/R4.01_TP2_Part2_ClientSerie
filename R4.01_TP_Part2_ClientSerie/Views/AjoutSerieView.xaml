@@ -1,0 +1,104 @@
+<Page
+    x:Class="R4._01_TP_Part2_ClientSerie.Views.AjoutSerieView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:R4._01_TP_Part2_ClientSerie.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <RelativePanel HorizontalAlignment="Center" Width="500" Margin="0,40,0,40">
+
+            <TextBlock x:Name="lblTitre" 
+                       Text="Titre de la série" 
+                       FontWeight="SemiBold"
+                       RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+
+            <TextBox x:Name="TxtTitre"
+                     Text="{Binding SerieToAdd.Titre, Mode=TwoWay}"
+                     Width="400"
+                     PlaceholderText="Ex: Breaking Bad"
+                     RelativePanel.Below="lblTitre"
+                     RelativePanel.AlignHorizontalCenterWithPanel="True"
+                     Margin="0,5,0,20"/>
+
+            <TextBlock x:Name="lblResume" 
+                       Text="Résumé" 
+                       FontWeight="SemiBold"
+                       RelativePanel.Below="TxtTitre"
+                       RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+
+            <TextBox x:Name="TxtResume"
+                     Text="{Binding SerieToAdd.Resume, Mode=TwoWay}"
+                     Width="400"
+                     Height="150" 
+                     AcceptsReturn="True" 
+                     TextWrapping="Wrap"
+                     RelativePanel.Below="lblResume"
+                     RelativePanel.AlignHorizontalCenterWithPanel="True"
+                     Margin="0,5,0,20"/>
+
+            <TextBlock x:Name="lblSaisons" 
+                       Text="Nombre de Saisons" 
+                       RelativePanel.Below="TxtResume"
+                       RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+
+            <NumberBox x:Name="NumSaisons"
+                       Value="{Binding SerieToAdd.Nbsaisons, Mode=TwoWay}"
+                       Width="150"
+                       SpinButtonPlacementMode="Inline"
+                       RelativePanel.Below="lblSaisons"
+                       RelativePanel.AlignHorizontalCenterWithPanel="True"
+                       Margin="0,5,0,15"/>
+
+            <TextBlock x:Name="lblEpisodes" 
+                       Text="Nombre d'épisodes" 
+                       RelativePanel.Below="NumSaisons"
+                       RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+
+            <NumberBox x:Name="NumEpisodes"
+                       Value="{Binding SerieToAdd.Nbepisodes, Mode=TwoWay}"
+                       Width="150"
+                       SpinButtonPlacementMode="Inline"
+                       RelativePanel.Below="lblEpisodes"
+                       RelativePanel.AlignHorizontalCenterWithPanel="True"
+                       Margin="0,5,0,15"/>
+
+            <TextBlock x:Name="lblAnnee" 
+                       Text="Année de création" 
+                       RelativePanel.Below="NumEpisodes"
+                       RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+
+            <NumberBox x:Name="NumAnnee"
+                       Value="{Binding SerieToAdd.AnneeCreation, Mode=TwoWay}"
+                       Width="150"
+                       RelativePanel.Below="lblAnnee"
+                       RelativePanel.AlignHorizontalCenterWithPanel="True"
+                       Margin="0,5,0,15"/>
+
+            <TextBlock x:Name="lblChaine" 
+                       Text="Chaîne / Network" 
+                       RelativePanel.Below="NumAnnee"
+                       RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+
+            <TextBox x:Name="TxtChaine"
+                     Text="{Binding SerieToAdd.Network, Mode=TwoWay}"
+                     Width="250"
+                     PlaceholderText="Ex: HBO"
+                     RelativePanel.Below="lblChaine"
+                     RelativePanel.AlignHorizontalCenterWithPanel="True"
+                     Margin="0,5,0,30"/>
+
+            <Button x:Name="BtnAjout"
+                    Content="Ajouter la série"
+                    Command="{Binding BtnAddSerie}"
+                    Style="{StaticResource AccentButtonStyle}"
+                    Width="200"
+                    Height="40"
+                    RelativePanel.Below="TxtChaine"
+                    RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+
+        </RelativePanel>
+    </ScrollViewer>
+</Page>
